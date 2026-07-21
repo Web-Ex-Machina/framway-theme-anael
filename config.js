@@ -40,4 +40,6 @@ module.exports = {
 		'font-color': 'input(font-color)',
 		'border-color': 'error',
 	},
+
+	'griditem-minwidth': '25ch',
 };
