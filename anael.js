@@ -13,8 +13,8 @@ viewportPaddingTop += 'px';
 document.documentElement.style.setProperty('--viewport-padding-top',viewportPaddingTop );
 
 
-// HEADER
 
+// HEADER
 /**
  * switch the header between reduced and not-reduced states
  * @param  {Boolean} reduce 
@@ -30,7 +30,7 @@ app.HeaderFW.prototype.navSwitcher = function(reduce = false){
         header.$el.removeClass('is-reduce');
         if (header.$search) header.$nav.append(header.$search);
         if (header.$lang)   header.$nav.append(header.$lang);
-        if (header.$topbar) header.$topbar.insertBefore(header.$el);
+        if (header.$topbar) header.$topbar.prependTo(header.$el);
     }
 };
 
@@ -71,6 +71,34 @@ window.addEventListener("load", function(e) {
               header.$toggler.trigger('click');
             });
             
+        }
+
+        // CUSTOM TABS
+        if (document.querySelector('.tabs[change-on-url]')) {
+            navigation.addEventListener("navigate", (event) => {
+                // console.log('navigate',event);
+                setTimeout(function(){
+                    document.querySelectorAll('.tabs[change-on-url]').forEach((tabs)=>{
+                        let param = tabs.getAttribute('change-on-url');
+                        let value = location.href.split(param+'/')[1] ?? false;
+                        // console.log(param, value);
+                        tabs.querySelectorAll('.tab').forEach((tab)=>{tab.classList.remove('active')})
+                        if (!value)
+                            return false;
+                        tabs.querySelector('.tab#'+value).classList.add('active');
+                        tabs.querySelector('.tab#'+value).scrollIntoView({behavior: "smooth",block:"center",inline:"nearest"}); 
+                    })
+                },10)
+            })
+            window.history.pushState({},"","");
+        }
+
+
+        if (document.querySelector('#navMarkets_tabsnav')) {
+            $('#navMarkets_tabsnav a').on('click',function(e){
+                e.preventDefault();
+                window.history.pushState({},"",this.href);
+            })
         }
 
         // window.dispatchEvent(new Event('resize'));
