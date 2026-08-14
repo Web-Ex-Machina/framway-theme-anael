@@ -17,6 +17,7 @@
 
 %btn{
 	font-variant: small-caps;
+	// text-align: left;
 	&.squared{
 		min-height: calc(var(--btn-line-height) + (var(--btn-p-y) * 2) + (var(--btn-border-size) * 2));
 		line-height: var(--btn-line-height);
@@ -370,6 +371,11 @@ h2,.h2{text-transform: none; font-variant: small-caps;}
 	&[data-preset=inline]{
 		.block-card__actions{margin-top: auto;}
 		.block-card__wrapper .block-card__figure{flex-basis: 15%;}
+	}
+
+	&.portfolio_item{
+		// .block-card__figure{@include img-container(scale-down,body(block-background));}
+		// .block-card__figure{@include img-container(scale-down,transparent);}
 	}
 }
 
