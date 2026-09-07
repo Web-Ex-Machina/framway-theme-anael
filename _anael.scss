@@ -604,6 +604,16 @@ fieldset{
 	legend{grid-column: 1 / -1;}
 }
 
+.form-confirmation{
+	// background: var(--success);
+	// color: white;
+	width: fit-content;
+	margin: $spacing auto;
+	padding: $spacing $spacing*1.5;
+	// @include lastChildNoMargin();
+	// @extend %shdw;
+}
+
 
 // HERO
 .heroFW{
