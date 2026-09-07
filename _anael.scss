@@ -204,7 +204,9 @@ h2,.h2{text-transform: none; font-variant: small-caps;}
 	&[data-stick=scroll]{}
 	&.is-pinned{box-shadow: 2px 4px 4px rgba($primary, 0.12) ;}
 }
-.headerFW__logo__wrapper{padding: 0.75em;}
+.headerFW__logo__wrapper{padding: 0.75em;
+	>a{max-width: 100%;}
+}
 .headerFW__nav__wrapper{align-items: flex-end; padding-top: 40px;
 	.is-reduce &,
 	.is-pinned &{padding-top: 0;}
@@ -224,6 +226,16 @@ h2,.h2{text-transform: none; font-variant: small-caps;}
 	    background: rgba($primary,0.1);
 		}
 	}
+}
+.headerFW__postnav{
+	display: none;
+	align-self: center;
+	padding: 0;
+	>a{
+		font-size: 1.5em;
+		padding: 1ch;
+	}
+	.headerFW.is-reduce &{display: block;}
 }
 
 .headerFW__nav__panel{height: 100vh; top: 0; z-index: 1;width: clamp(50%,500px,100%); }
@@ -280,6 +292,7 @@ h2,.h2{text-transform: none; font-variant: small-caps;}
 			@include input-placeholder{color: #fff;}
 		}
 		button{border-radius: 0;}
+		.headerFW.is-reduce &{display: none;}
 	}
 	&.phone  {background: color(blue_3);}
 	&.mail   {background: color(blue_2);}

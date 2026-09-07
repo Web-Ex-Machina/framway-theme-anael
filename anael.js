@@ -13,7 +13,6 @@ viewportPaddingTop += 'px';
 document.documentElement.style.setProperty('--viewport-padding-top',viewportPaddingTop );
 
 
-
 // HEADER
 /**
  * switch the header between reduced and not-reduced states
