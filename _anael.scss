@@ -659,10 +659,10 @@ fieldset{
 	    }
 	    @include media-max(sm){
 	      --percent-w-picture: 1;
-	      --shift: 0;
+	      --shift: 0px;
 	      grid-template-columns: 1fr;
 	      .heroFW__figure,
-	      .heroFW__content{grid-column: 1; grid-row: 1; order: 0;}
+	      .heroFW__content{grid-column: 1; grid-row: 1; order: 0;border-radius: 0;}
 	    }
 	  }
 	  .heroFW__figure{position: relative; order:1; max-height: 60vh; min-height: 100%; background: body(block-background);
@@ -880,10 +880,11 @@ img[src*="ifpen.png"]{
 	container-type: inline-size;
 
 	.heroFW{
+		.heroFW__content,
 		.heroFW__figure{
 			position: relative;
-			.featured{position: absolute; top: 1em; left: 1em;}
 		}
+		.featured{position: absolute; top: 1em; left: 1em;}
 	}
 }
 .portfolio__wrapperContent{
